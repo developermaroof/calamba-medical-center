@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { BrandLogo } from "@/components/brand-logo";
 import { useEffect, useState } from "react";
-import { Menu, Phone } from "lucide-react";
+import { CalendarCheck, Menu } from "lucide-react";
+import { BrandLogo } from "@/components/brand-logo";
 import { buttonVariants } from "@/components/ui/button";
 import {
   Sheet,
@@ -16,8 +16,7 @@ import {
 import { navLinks, siteConfig } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
-const mobileNavLinkClass =
-  "block rounded-lg px-3 py-3.5 text-base font-medium text-foreground outline-none transition-colors hover:bg-muted active:bg-muted focus-visible:ring-2 focus-visible:ring-primary/25";
+const ctaClass = "rounded-full px-5 text-sm";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,24 +41,25 @@ export function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-b bg-background/95 shadow-sm backdrop-blur-md"
+          ? "border-b border-border bg-background/90 shadow-sm backdrop-blur-md"
           : "bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-16 md:h-20 md:px-6">
-        <Link href="#" className="min-w-0 shrink">
-          <BrandLogo variant={scrolled ? "default" : "hero"} />
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 md:h-20 md:px-6">
+        <Link
+          href="#"
+          aria-label={`${siteConfig.brand} at ${siteConfig.clinicName}`}
+          className="min-w-0 shrink"
+        >
+          <BrandLogo />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                scrolled ? "text-foreground" : "text-white/90 hover:text-white"
-              )}
+              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
             >
               {link.label}
             </a>
@@ -68,14 +68,11 @@ export function Header() {
 
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-            className={buttonVariants({
-              variant: scrolled ? "default" : "secondary",
-              size: "sm",
-            })}
+            href="#book"
+            className={cn(buttonVariants({ variant: "default" }), ctaClass, "h-10")}
           >
-            <Phone className="mr-2 size-4" />
-            Call Now
+            <CalendarCheck className="mr-1.5 size-4" />
+            Book an Appointment
           </a>
         </div>
 
@@ -83,17 +80,21 @@ export function Header() {
           <SheetTrigger
             className={cn(
               buttonVariants({ variant: "ghost", size: "icon" }),
-              "shrink-0 md:hidden",
-              !scrolled && "text-white hover:bg-white/10 hover:text-white"
+              "size-10 shrink-0 md:hidden"
             )}
             aria-label="Open menu"
           >
             <Menu className="size-6" />
           </SheetTrigger>
-          <SheetContent side="right" className="flex w-full flex-col gap-0 p-0 sm:max-w-sm">
+          <SheetContent
+            side="right"
+            className="flex w-full flex-col gap-0 p-0 sm:max-w-sm"
+          >
             <SheetHeader className="border-b px-5 py-4">
-              <BrandLogo variant="default" />
-              <SheetTitle className="sr-only">{siteConfig.name}</SheetTitle>
+              <BrandLogo />
+              <SheetTitle className="sr-only">
+                {siteConfig.brand} at {siteConfig.clinicName}
+              </SheetTitle>
             </SheetHeader>
             <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-4">
               {navLinks.map((link) => (
@@ -101,7 +102,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={mobileNavLinkClass}
+                  className="block rounded-lg px-3 py-3.5 text-base font-medium text-foreground transition-colors hover:bg-muted active:bg-muted"
                 >
                   {link.label}
                 </a>
@@ -109,12 +110,12 @@ export function Header() {
             </nav>
             <SheetFooter className="border-t px-5 py-5">
               <a
-                href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+                href="#book"
                 onClick={() => setOpen(false)}
-                className={cn(buttonVariants({ size: "lg" }), "h-12 w-full")}
+                className={cn(buttonVariants({ size: "lg" }), "h-12 w-full rounded-full")}
               >
-                <Phone className="mr-2 size-4" />
-                {siteConfig.phone}
+                <CalendarCheck className="mr-2 size-4" />
+                Book an Appointment
               </a>
             </SheetFooter>
           </SheetContent>
