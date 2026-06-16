@@ -19,7 +19,7 @@ function InstagramIcon({ className }: { className?: string }) {
 
 export function Footer() {
   return (
-    <footer className="bg-zeiss-navy text-white">
+    <footer className="bg-brand-deep text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-12 md:py-14">
         <div className="md:col-span-5">
           <p className="text-xl font-bold tracking-tight">
@@ -80,17 +80,17 @@ export function Footer() {
           </h3>
           <ul className="space-y-3 text-sm text-white/70">
             <li className="flex items-start gap-2.5">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-zeiss-sky" />
+              <MapPin className="mt-0.5 size-4 shrink-0 text-brand-accent" />
               <span>{siteConfig.address}</span>
             </li>
             <li className="flex items-center gap-2.5">
-              <Phone className="size-4 shrink-0 text-zeiss-sky" />
+              <Phone className="size-4 shrink-0 text-brand-accent" />
               <a href={`tel:${siteConfig.phoneHref}`} className="hover:text-white">
                 {siteConfig.phone}
               </a>
             </li>
             <li className="flex items-center gap-2.5">
-              <MessageCircle className="size-4 shrink-0 text-zeiss-sky" />
+              <MessageCircle className="size-4 shrink-0 text-brand-accent" />
               <a
                 href={`https://wa.me/${siteConfig.whatsappHref}`}
                 target="_blank"
@@ -101,7 +101,7 @@ export function Footer() {
               </a>
             </li>
             <li className="flex items-center gap-2.5">
-              <Mail className="size-4 shrink-0 text-zeiss-sky" />
+              <Mail className="size-4 shrink-0 text-brand-accent" />
               <a href={`mailto:${siteConfig.email}`} className="hover:text-white">
                 {siteConfig.email}
               </a>

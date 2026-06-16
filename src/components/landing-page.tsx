@@ -146,7 +146,7 @@ function Spectrum({ className }: { className?: string }) {
         <span key={word} className="flex items-center gap-2">
           <span>{word}</span>
           {i < hero.spectrum.length - 1 && (
-            <span className="text-zeiss-sky">›</span>
+            <span className="text-brand-accent">›</span>
           )}
         </span>
       ))}
@@ -279,7 +279,7 @@ export function LandingPage() {
       <Header />
 
       {/* ─────────────── Hero ─────────────── */}
-      <section className="relative overflow-hidden bg-hero-sky pt-28 pb-16 sm:pt-32 md:pb-24">
+      <section className="relative overflow-hidden bg-hero-tint pt-28 pb-16 sm:pt-32 md:pb-24">
         <div className={cn(sectionX, "grid items-center gap-10 lg:grid-cols-2 lg:gap-8")}>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -295,12 +295,12 @@ export function LandingPage() {
                 {hero.clinicTag}
               </p>
             </div>
-            <h1 className="mt-3 font-heading text-5xl font-bold uppercase leading-[0.95] tracking-tight text-zeiss-navy sm:text-6xl md:text-7xl">
+            <h1 className="mt-3 font-heading text-5xl font-bold uppercase leading-[0.95] tracking-tight text-brand-deep sm:text-6xl md:text-7xl">
               {hero.headlineTop}
               <br />
-              <span className="text-gradient-zeiss">{hero.headlineBottom}</span>
+              <span className="text-gradient-brand">{hero.headlineBottom}</span>
             </h1>
-            <Spectrum className="mt-4 text-zeiss-navy" />
+            <Spectrum className="mt-4 text-brand-deep" />
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               {hero.description}
             </p>
@@ -394,7 +394,7 @@ export function LandingPage() {
       </section>
 
       {/* ─────────────── About ─────────────── */}
-      <section id="about" className="bg-sky-fade py-16 sm:py-24">
+      <section id="about" className="bg-tint-fade py-16 sm:py-24">
         <div className={cn(sectionX, "grid items-center gap-10 lg:grid-cols-2")}>
           <MotionSection className="order-2 lg:order-1">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-soft">
@@ -429,7 +429,7 @@ export function LandingPage() {
       </section>
 
       {/* ─────────────── Solution overview (7) ─────────────── */}
-      <section id="benefits" className="bg-sky-band py-16 sm:py-24">
+      <section id="benefits" className="bg-tint-band py-16 sm:py-24">
         <div className={sectionX}>
           <SectionHeading
             eyebrow="Why Laser Vision Correction"
@@ -523,7 +523,7 @@ export function LandingPage() {
       </section>
 
       {/* ─────────────── Eligibility (4) ─────────────── */}
-      <section id="eligibility" className="bg-sky-fade py-16 sm:py-24">
+      <section id="eligibility" className="bg-tint-fade py-16 sm:py-24">
         <div className={sectionX}>
           <SectionHeading
             eyebrow="Who Is Eligible"
@@ -540,7 +540,7 @@ export function LandingPage() {
                   <h3 className="font-heading text-lg font-bold text-foreground">
                     {e.title}
                   </h3>
-                  <p className="text-xs font-medium uppercase tracking-wide text-zeiss-sky">
+                  <p className="text-xs font-medium uppercase tracking-wide text-brand-accent">
                     {e.note}
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -560,7 +560,7 @@ export function LandingPage() {
       </section>
 
       {/* ─────────────── Clinic stats band ─────────────── */}
-      <section className="bg-zeiss-blue py-14 sm:py-16">
+      <section className="bg-brand py-14 sm:py-16">
         <div className={sectionX}>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((s) => (
@@ -623,7 +623,7 @@ export function LandingPage() {
       </section>
 
       {/* ─────────────── Centers of Excellence (clinic services) ─────────────── */}
-      <section id="services" className="bg-sky-band py-16 sm:py-24">
+      <section id="services" className="bg-tint-band py-16 sm:py-24">
         <div className={sectionX}>
           <SectionHeading
             eyebrow="Calamba Medical Center"
@@ -694,7 +694,7 @@ export function LandingPage() {
             {testimonials.map((t, i) => (
               <MotionSection key={t.name} delay={i * 0.08}>
                 <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-7">
-                  <Quote className="size-8 text-zeiss-light" />
+                  <Quote className="size-8 text-brand-soft" />
                   <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-foreground">
                     “{t.quote}”
                   </blockquote>
@@ -710,7 +710,7 @@ export function LandingPage() {
       </section>
 
       {/* ─────────────── Why choose this clinic ─────────────── */}
-      <section className="bg-sky-fade py-16 sm:py-24">
+      <section className="bg-tint-fade py-16 sm:py-24">
         <div className={sectionX}>
           <SectionHeading
             eyebrow="Why Choose Us"
@@ -758,7 +758,7 @@ export function LandingPage() {
                     <h3 className="font-heading text-lg font-bold text-foreground">
                       {d.name}
                     </h3>
-                    <p className="text-xs font-medium uppercase tracking-wide text-zeiss-sky">
+                    <p className="text-xs font-medium uppercase tracking-wide text-brand-accent">
                       {d.title}
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -773,7 +773,7 @@ export function LandingPage() {
       </section>
 
       {/* ─────────────── FAQ ─────────────── */}
-      <section id="faq" className="bg-sky-band py-16 sm:py-24">
+      <section id="faq" className="bg-tint-band py-16 sm:py-24">
         <div className={cn(sectionX, "max-w-3xl")}>
           <SectionHeading
             eyebrow="FAQ"

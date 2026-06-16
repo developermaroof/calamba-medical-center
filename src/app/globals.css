@@ -38,11 +38,10 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --color-zeiss-blue: var(--zeiss-blue);
-  --color-zeiss-navy: var(--zeiss-navy);
-  --color-zeiss-sky: var(--zeiss-sky);
-  --color-zeiss-light: var(--zeiss-light);
-  --color-zeiss-green: var(--zeiss-green);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-soft: var(--brand-soft);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -53,66 +52,65 @@
 }
 
 :root {
-  /* ZEISS SMILE pro — Freedom of Vision brand palette (from official assets) */
-  --zeiss-blue: #0f2db3;
-  --zeiss-navy: #002060;
-  --zeiss-sky: #00b0f0;
-  --zeiss-light: #9fc7e9;
-  --zeiss-green: #92d050;
+  /* Calamba Medical Center brand palette (matched to the CMC logo green) */
+  --brand: #16864a;
+  --brand-deep: #0a5230;
+  --brand-accent: #25a85f;
+  --brand-soft: #bce5cc;
 
   --background: #ffffff;
-  --foreground: #0e1b2e;
+  --foreground: #14201a;
   --card: #ffffff;
-  --card-foreground: #0e1b2e;
+  --card-foreground: #14201a;
   --popover: #ffffff;
-  --popover-foreground: #0e1b2e;
-  --primary: #0f2db3;
+  --popover-foreground: #14201a;
+  --primary: #16864a;
   --primary-foreground: #ffffff;
-  --secondary: #eaf2fb;
-  --secondary-foreground: #0f2db3;
-  --muted: #f2f6fb;
-  --muted-foreground: #5b6b80;
-  --accent: #00b0f0;
-  --accent-foreground: #00204a;
+  --secondary: #e8f5ee;
+  --secondary-foreground: #136340;
+  --muted: #f1f6f3;
+  --muted-foreground: #5a6b62;
+  --accent: #25a85f;
+  --accent-foreground: #06351d;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #e4ebf4;
-  --input: #dde6f1;
-  --ring: #0f2db3;
-  --chart-1: #0f2db3;
-  --chart-2: #00b0f0;
-  --chart-3: #9fc7e9;
-  --chart-4: #92d050;
-  --chart-5: #002060;
+  --border: #e1eee7;
+  --input: #dbe9e1;
+  --ring: #16864a;
+  --chart-1: #16864a;
+  --chart-2: #25a85f;
+  --chart-3: #bce5cc;
+  --chart-4: #c9a227;
+  --chart-5: #0a5230;
   --radius: 0.85rem;
   --sidebar: #ffffff;
-  --sidebar-foreground: #0e1b2e;
-  --sidebar-primary: #0f2db3;
+  --sidebar-foreground: #14201a;
+  --sidebar-primary: #16864a;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #eaf2fb;
-  --sidebar-accent-foreground: #0f2db3;
-  --sidebar-border: #e4ebf4;
-  --sidebar-ring: #0f2db3;
+  --sidebar-accent: #e8f5ee;
+  --sidebar-accent-foreground: #136340;
+  --sidebar-border: #e1eee7;
+  --sidebar-ring: #16864a;
 }
 
 .dark {
-  --background: #0a1430;
-  --foreground: #eaf2fb;
-  --card: #0e1b3d;
-  --card-foreground: #eaf2fb;
-  --popover: #0e1b3d;
-  --popover-foreground: #eaf2fb;
-  --primary: #3f6be8;
-  --primary-foreground: #ffffff;
-  --secondary: #14224a;
-  --secondary-foreground: #eaf2fb;
-  --muted: #14224a;
-  --muted-foreground: #9fb0cc;
-  --accent: #00b0f0;
-  --accent-foreground: #04132f;
+  --background: #0a1711;
+  --foreground: #e8f5ee;
+  --card: #0e2018;
+  --card-foreground: #e8f5ee;
+  --popover: #0e2018;
+  --popover-foreground: #e8f5ee;
+  --primary: #2fb96c;
+  --primary-foreground: #04130b;
+  --secondary: #14281e;
+  --secondary-foreground: #e8f5ee;
+  --muted: #14281e;
+  --muted-foreground: #9fb6a8;
+  --accent: #25a85f;
+  --accent-foreground: #04130b;
   --destructive: oklch(0.704 0.191 22.216);
   --border: rgb(255 255 255 / 10%);
   --input: rgb(255 255 255 / 15%);
-  --ring: #3f6be8;
+  --ring: #2fb96c;
 }
 
 @layer base {
@@ -137,29 +135,29 @@
 }
 
 @layer utilities {
-  /* Airy ZEISS sky gradients */
-  .bg-hero-sky {
+  /* Airy brand-green gradients */
+  .bg-hero-tint {
     background-image: radial-gradient(
       120% 95% at 82% -10%,
-      #d6eafb 0%,
-      #eaf4fd 42%,
+      #e2f4ea 0%,
+      #f0faf5 42%,
       #ffffff 100%
     );
   }
-  .bg-sky-fade {
-    background-image: linear-gradient(180deg, #eaf3fc 0%, #ffffff 100%);
+  .bg-tint-fade {
+    background-image: linear-gradient(180deg, #ecf7f1 0%, #ffffff 100%);
   }
-  .bg-sky-band {
-    background-image: linear-gradient(180deg, #f3f9fe 0%, #e6f1fb 100%);
+  .bg-tint-band {
+    background-image: linear-gradient(180deg, #f3faf6 0%, #e6f4ec 100%);
   }
-  .text-gradient-zeiss {
-    background-image: linear-gradient(92deg, #0f2db3 0%, #00b0f0 100%);
+  .text-gradient-brand {
+    background-image: linear-gradient(92deg, #0a5230 0%, #25a85f 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   .shadow-soft {
-    box-shadow: 0 18px 50px -18px rgb(15 45 179 / 0.22);
+    box-shadow: 0 18px 50px -18px rgb(13 95 55 / 0.22);
   }
 }
 
