@@ -28,23 +28,23 @@ const frutigerCondensed = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://calamba-medical-center.vercel.app"),
-  title: "ZEISS SMILE pro at Calamba Eye Center | Freedom of Vision",
+  title: "Calamba Eye Center | Laser Vision Correction",
   description:
-    "Experience Freedom of Vision with ZEISS SMILE pro — flapless, bladeless laser vision correction at Calamba Eye Center. Less than 10 seconds of laser time per eye, a 2–4mm incision, and fast recovery.",
+    "Flapless, bladeless, minimally invasive laser vision correction at Calamba Eye Center — short laser time, a 2–4mm incision, and fast recovery. See clearly, live freely.",
   keywords: [
-    "ZEISS SMILE pro",
+    "laser vision correction",
     "laser eye surgery",
     "LASIK alternative",
-    "laser vision correction",
+    "flapless laser eye surgery",
     "eyesight operation",
     "Calamba Eye Center",
     "eye surgery Laguna",
-    "SMILE Philippines",
+    "Calamba Medical Center",
   ],
   openGraph: {
-    title: "ZEISS SMILE pro at Calamba Eye Center — Freedom of Vision",
+    title: "Calamba Eye Center — Laser Vision Correction",
     description:
-      "Flapless, bladeless laser vision correction. Unlock your visual freedom in just seconds.",
+      "See clearly, live freely. Flapless, minimally invasive laser vision correction at Calamba Eye Center.",
     type: "website",
     images: ["/images/zeiss/kv-landscape-1600.jpg"],
   },

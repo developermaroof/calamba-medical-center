@@ -7,6 +7,7 @@ import {
   Activity,
   ArrowRight,
   Award,
+  BadgeCheck,
   CalendarCheck,
   Check,
   ChevronDown,
@@ -17,7 +18,6 @@ import {
   Globe,
   MessageCircle,
   Phone,
-  Play,
   Quote,
   Scan,
   ShieldCheck,
@@ -38,15 +38,18 @@ import {
   about,
   benefits,
   booking,
+  centersOfExcellence,
   doctors,
   eligibility,
   faqs,
   hero,
+  hmoPartners,
   procedure,
   siteConfig,
   solutions,
   stats,
   testimonials,
+  trustBadges,
   usps,
 } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
@@ -75,8 +78,9 @@ function Icon({ name, className }: { name: string; className?: string }) {
 }
 
 const primaryCta = "h-12 rounded-full px-7 text-[0.95rem]";
+const sectionX = "mx-auto max-w-7xl px-4 sm:px-6";
 
-/* Animated counter for the trust-stats band */
+/* Animated counter for the clinic-stats band */
 function Stat({
   value,
   prefix = "",
@@ -269,8 +273,6 @@ function BookingForm() {
   );
 }
 
-const sectionX = "mx-auto max-w-7xl px-4 sm:px-6";
-
 export function LandingPage() {
   return (
     <>
@@ -284,13 +286,19 @@ export function LandingPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-primary sm:text-base">
-              {hero.sub}
-            </p>
-            <h1 className="mt-2 font-heading text-5xl font-bold uppercase leading-[0.95] tracking-tight text-zeiss-navy sm:text-6xl md:text-7xl">
-              <span className="text-gradient-zeiss">Freedom</span>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <p className="font-heading text-sm font-bold uppercase tracking-[0.18em] text-foreground sm:text-base">
+                {hero.clinicEyebrow}
+              </p>
+              <span className="hidden h-4 w-px bg-border sm:block" />
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                {hero.clinicTag}
+              </p>
+            </div>
+            <h1 className="mt-3 font-heading text-5xl font-bold uppercase leading-[0.95] tracking-tight text-zeiss-navy sm:text-6xl md:text-7xl">
+              {hero.headlineTop}
               <br />
-              of Vision
+              <span className="text-gradient-zeiss">{hero.headlineBottom}</span>
             </h1>
             <Spectrum className="mt-4 text-zeiss-navy" />
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -311,18 +319,12 @@ export function LandingPage() {
                 {hero.ctaSecondary}
               </a>
             </div>
-            <div className="mt-7 flex items-center gap-3">
-              <Image
-                src="/images/zeiss/fda-approved.png"
-                alt="The only FDA-approved"
-                width={52}
-                height={52}
-                className="size-12 shrink-0 object-contain"
-              />
-              <p className="max-w-xs text-xs leading-relaxed text-muted-foreground">
-                {hero.microtrust}
-              </p>
-            </div>
+            <p className="mt-7 text-xs font-medium text-muted-foreground">
+              {hero.microtrust}
+            </p>
+            <p className="mt-1.5 text-xs font-medium text-foreground/70">
+              {hero.clinicTrust}
+            </p>
           </motion.div>
 
           <motion.div
@@ -334,7 +336,7 @@ export function LandingPage() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-soft">
               <Image
                 src="/images/zeiss/kv-portrait-1600.jpg"
-                alt="Freedom of Vision with ZEISS SMILE pro"
+                alt="Clear, glasses-free vision at Calamba Eye Center"
                 fill
                 priority
                 sizes="(max-width: 1024px) 90vw, 45vw"
@@ -346,6 +348,25 @@ export function LandingPage() {
               <p className="text-xs text-muted-foreground">laser time / eye</p>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ─────────────── Clinic trust bar ─────────────── */}
+      <section className="border-b border-border bg-card py-5 sm:py-6">
+        <div className={cn(sectionX, "grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4")}>
+          {trustBadges.map((b) => (
+            <div key={b.label} className="flex items-center gap-3">
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
+                <BadgeCheck className="size-5" />
+              </span>
+              <div>
+                <p className="text-sm font-semibold leading-tight text-foreground">
+                  {b.label}
+                </p>
+                <p className="text-xs text-muted-foreground">{b.detail}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -378,8 +399,8 @@ export function LandingPage() {
           <MotionSection className="order-2 lg:order-1">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-soft">
               <Image
-                src="/images/zeiss/gentle-square.jpg"
-                alt="Living life with Freedom of Vision"
+                src="/images/buildings.jpg"
+                alt="Calamba Medical Center"
                 fill
                 sizes="(max-width: 1024px) 90vw, 45vw"
                 className="object-cover"
@@ -411,8 +432,8 @@ export function LandingPage() {
       <section id="benefits" className="bg-sky-band py-16 sm:py-24">
         <div className={sectionX}>
           <SectionHeading
-            eyebrow="Why ZEISS SMILE pro"
-            title="Seven Reasons to Choose Freedom of Vision"
+            eyebrow="Why Laser Vision Correction"
+            title="Seven Reasons to See Clearly"
             description="Next-generation laser vision correction — fast, flapless, and built around your comfort."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -463,7 +484,6 @@ export function LandingPage() {
             ))}
           </div>
 
-          {/* comparison */}
           <MotionSection className="mt-10">
             <div className="overflow-hidden rounded-2xl border border-border">
               <div className="grid grid-cols-3 bg-secondary text-center font-heading text-xs font-bold uppercase tracking-wide text-secondary-foreground sm:text-sm">
@@ -507,8 +527,8 @@ export function LandingPage() {
         <div className={sectionX}>
           <SectionHeading
             eyebrow="Who Is Eligible"
-            title="Could You Unlock Freedom of Vision?"
-            description="ZEISS SMILE pro corrects a wide range of vision needs. A professional assessment confirms your suitability."
+            title="Could You Lose the Glasses?"
+            description="Laser vision correction treats a wide range of vision needs. A professional assessment confirms your suitability."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {eligibility.map((e, i) => (
@@ -539,7 +559,7 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* ─────────────── Trust stats band ─────────────── */}
+      {/* ─────────────── Clinic stats band ─────────────── */}
       <section className="bg-zeiss-blue py-14 sm:py-16">
         <div className={sectionX}>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -548,8 +568,8 @@ export function LandingPage() {
             ))}
           </div>
           <p className="mt-8 text-center text-sm text-white/70">
-            The only FDA-approved Small Incision Lenticule Extraction procedure in
-            the world.
+            Trusted, ACI Gold-accredited care for Laguna and Southern Luzon since
+            1989.
           </p>
         </div>
       </section>
@@ -602,33 +622,63 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* ─────────────── More about (video) ─────────────── */}
-      <section className="bg-sky-band py-16 sm:py-24">
+      {/* ─────────────── Centers of Excellence (clinic services) ─────────────── */}
+      <section id="services" className="bg-sky-band py-16 sm:py-24">
         <div className={sectionX}>
           <SectionHeading
-            eyebrow="More About ZEISS SMILE pro"
-            title="See How Freedom of Vision Works"
-            description="Watch the ZEISS SMILE pro patient animation to understand the gentle, flapless procedure."
+            eyebrow="Calamba Medical Center"
+            title="More Than Vision Care"
+            description="Calamba Eye Center is part of a full Centers-of-Excellence hospital — trusted, ACI Gold-accredited care across Southern Luzon."
           />
-          <MotionSection>
-            <div className="relative mx-auto max-w-4xl overflow-hidden rounded-2xl shadow-soft">
-              <video
-                controls
-                playsInline
-                preload="metadata"
-                poster="/images/zeiss/kv-landscape-1600.jpg"
-                className="aspect-video w-full bg-black object-cover"
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {centersOfExcellence.map((c, i) => (
+              <MotionSection key={c.id} delay={(i % 4) * 0.05}>
+                <div className="group h-full overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-soft">
+                  <div className="relative h-40 overflow-hidden">
+                    <Image
+                      src={c.image}
+                      alt={c.name}
+                      fill
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {"flagship" in c && c.flagship && (
+                      <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-primary-foreground">
+                        Flagship · Laser Vision
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-heading text-base font-bold text-foreground">
+                      {c.name}
+                    </h3>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                      {c.description}
+                    </p>
+                  </div>
+                </div>
+              </MotionSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────── HMO partners ─────────────── */}
+      <section className="overflow-hidden border-y border-border bg-card py-10">
+        <p className="mb-5 text-center text-sm font-medium text-muted-foreground">
+          Accepted HMO &amp; Insurance Partners
+        </p>
+        <div className="relative flex overflow-hidden">
+          <div className="animate-marquee flex gap-5 whitespace-nowrap pr-5">
+            {[...hmoPartners, ...hmoPartners].map((p, i) => (
+              <span
+                key={`${p}-${i}`}
+                className="rounded-full border border-border bg-background px-5 py-2 text-sm font-medium text-foreground"
               >
-                <source
-                  src="/images/zeiss/smile-pro-patient-video.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <span className="pointer-events-none absolute left-4 top-4 flex items-center gap-1.5 rounded-full bg-primary/90 px-3 py-1 text-xs font-medium text-primary-foreground">
-                <Play className="size-3" /> Patient animation
+                {p}
               </span>
-            </div>
-          </MotionSection>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -636,8 +686,8 @@ export function LandingPage() {
       <section className="py-16 sm:py-24">
         <div className={sectionX}>
           <SectionHeading
-            eyebrow="What Others Say"
-            title="Regain Your Freedom"
+            eyebrow="What Our Patients Say"
+            title="Clearer Vision, Real Stories"
             description="Real freedom, in their words. (Representative testimonials.)"
           />
           <div className="grid gap-6 md:grid-cols-3">
@@ -664,8 +714,8 @@ export function LandingPage() {
         <div className={sectionX}>
           <SectionHeading
             eyebrow="Why Choose Us"
-            title={`Freedom of Vision at ${siteConfig.clinicName}`}
-            description="ZEISS-grade technology, delivered with trusted local care."
+            title={`Why Choose ${siteConfig.clinicName}`}
+            description="Advanced technology, delivered with trusted local care."
           />
           <div className="grid gap-6 md:grid-cols-3">
             {usps.map((u, i) => (
@@ -695,7 +745,7 @@ export function LandingPage() {
           <SectionHeading
             eyebrow="Meet Our Eye Doctors"
             title="In Expert, Caring Hands"
-            description="Your Freedom of Vision is guided by an experienced refractive team."
+            description="Your vision is guided by an experienced refractive team."
           />
           <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-2">
             {doctors.map((d, i) => (
@@ -728,7 +778,7 @@ export function LandingPage() {
           <SectionHeading
             eyebrow="FAQ"
             title="Frequently Asked Questions"
-            description="Everything you want to know about ZEISS SMILE pro."
+            description="Everything you want to know about laser vision correction."
           />
           <div className="rounded-2xl bg-card px-6 shadow-soft sm:px-8">
             {faqs.map((f) => (

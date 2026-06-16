@@ -23,15 +23,14 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-12 md:py-14">
         <div className="md:col-span-5">
           <p className="text-xl font-bold tracking-tight">
-            ZEISS <span className="font-medium text-white/85">SMILE pro</span>
+            {siteConfig.clinicName}
           </p>
           <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.18em] text-white/55">
-            {siteConfig.procedureTag}
+            {siteConfig.parentName}
           </p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
-            Freedom of Vision at {siteConfig.clinicName}, offered by{" "}
-            {siteConfig.parentName} — the only FDA-approved lenticule extraction
-            procedure.
+            Advanced, minimally invasive laser vision correction and
+            full-spectrum eye care at {siteConfig.clinicName}.
           </p>
           <div className="mt-5 flex gap-3">
             <a
@@ -116,8 +115,7 @@ export function Footer() {
           <p>{disclaimer}</p>
           <p>
             © {new Date().getFullYear()} {siteConfig.clinicName} ·{" "}
-            {siteConfig.parentName}. ZEISS, the ZEISS logo and ZEISS SMILE pro are
-            trademarks of Carl Zeiss AG, used with permission.
+            {siteConfig.parentName}. All rights reserved.
           </p>
         </div>
       </div>
